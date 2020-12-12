@@ -42,7 +42,6 @@ plugins:
   - jekyll-feed
   - jekyll-sitemap
   - jekyll-seo
-  - jekyll-picture-tag
 
 picture:
   source: "assets/images/fullsize"

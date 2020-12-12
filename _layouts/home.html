@@ -4,6 +4,15 @@ regenerate: true
 ---
 <section id='fnord'>
   <h1>{{site.title}}</h1>
-  <p>Yes. They are all out to get you.</p>
-  <p>Get them first.</p>
+  <p id='q-title'></p>
+  <p id='q-message'></p>
 </section>
+<script>
+  Array.prototype.sample = function(){
+    return this[Math.floor(Math.random()*this.length)];
+  }
+  msg = {{site.data.quotes|jsonify}}.sample()
+  document.getElementById("q-title").innerHTML = msg.title;
+  document.getElementById("q-message").innerHTML = msg.message;
+  console.log(msg)
+</script>

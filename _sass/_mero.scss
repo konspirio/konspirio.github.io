@@ -9,17 +9,17 @@ $mero-success:      clr('green') !default;
 $mero-warning:      clr('orange') !default;
 $mero-brand:        clr('brand') !default;
 
-$mero-red: clr('red');
-$mero-orange: clr('orange');
-$mero-yellow: clr('yellow');
-$mero-green: clr('green');
-$mero-blue: clr('blue');
-$mero-indigo: clr('indigo');
-$mero-violet: clr('violet');
+$mero-red: clr($red);
+$mero-orange: clr($orange);
+$mero-yellow: clr($yellow);
+$mero-green: clr($green);
+$mero-blue: clr($blue);
+$mero-indigo: clr($indigo);
+$mero-violet: clr($violet);
 
-$mero-white: clr('white') !default;
-$mero-black: clr('black') !default;
-$mero-dull:  clr('gray') !default;
+$mero-white: clr($white) !default;
+$mero-black: clr($black) !default;
+$mero-dull:  clr($gray) !default;
 
 $navbar-bg: clr('brand') !default;
 

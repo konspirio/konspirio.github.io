@@ -52,6 +52,8 @@ end
 # MAIN:
 # Enable single-file optimization.
 sha = `git log origin/main | head -1`.split.last
+puts "SHA: #{sha}"
+puts "git diff-tree -r --name-only --no-commit-id #{sha}"
 files = `git diff-tree -r --name-only --no-commit-id #{sha}`.split.map do |f|
   (['jpg','png'].any? { |word| f.include?(word) }) ? f : nil
 end.compact.map do |f|

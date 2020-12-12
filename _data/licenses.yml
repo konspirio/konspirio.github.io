@@ -1,0 +1,20 @@
+---
+  CC0:
+    tag: "CC0"
+    url: "https://creativecommons.org/share-your-work/public-domain/cc0/"
+  PD:
+    tag: "Public Domain"
+    url: "https://creativecommons.org/share-your-work/public-domain/cc0/"
+  RR:
+    tag: "Rights Reserved"
+    url: "#"
+  BY:
+    tag: "CC BY 2.0"
+    url: "https://creativecommons.org/licenses/by/2.0/"
+  BY-SA:
+    tag: "CC BY-SA 2.0"
+    url: "https://creativecommons.org/licenses/by-sa/2.0/"
+  BY-ND:
+    tag: "CC BY-ND 2.0"
+    url: "https://creativecommons.org/licenses/by-nd/2.0/"
+---

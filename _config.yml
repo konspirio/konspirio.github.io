@@ -1,55 +1,62 @@
-# Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely edit after that. If you find
-# yourself editing this file very often, consider using Jekyll's data files
-# feature for the data you need to update frequently.
-#
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
-#
-# If you need help with YAML syntax, here are some quick references for you: 
-# https://learn-the-web.algonquindesign.ca/topics/markdown-yaml-cheat-sheet/#yaml
-# https://learnxinyminutes.com/docs/yaml/
-#
-# Site settings
-# These are used to personalize your new site. If you look in the HTML files,
-# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
-# You can create any custom variable you would like, and they will be accessible
-# in the templates via {{ site.myvariable }}.
 
-title: Your awesome title
-email: your-email@example.com
+title: "Konspirio"
+email: merovex@gmail.com
+venue: Virginia
+
 description: >- # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
+  A game of conspiracy and real-life.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: jekyllrb
 github_username:  jekyll
 
+future: false
+sass:
+  style: compressed
+collections:
+  faq:
+    output: true
+    permalink: /faq/:path/
+
+defaults:
+  - scope:
+      path: ""
+      type: "books"
+    values:
+      layout: "book"
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+  -
+    scope:
+      path: ""
+    values:
+      layout: "page"
 # Build settings
-theme: minima
+permalink: /posts/:title
+
+# Build settings
 plugins:
   - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo
+  - jekyll-picture-tag
 
-# Exclude from processing.
-# The following items will not be processed, by default.
-# Any item listed under the `exclude:` key here will be automatically added to
-# the internal "default list".
-#
-# Excluded items can be processed by explicitly listing the directories or
-# their entries' file path in the `include:` list.
-#
-# exclude:
-#   - .sass-cache/
-#   - .jekyll-cache/
-#   - gemfiles/
-#   - Gemfile
-#   - Gemfile.lock
-#   - node_modules/
-#   - vendor/bundle/
-#   - vendor/cache/
-#   - vendor/gems/
-#   - vendor/ruby/
+picture:
+  source: "assets/images/fullsize"
+  output: "assets/images/generated"
+  suppress_warnings: true
+
+
+kramdown:
+  input                   : GFM
+  hard_wrap               : false
+  auto_ids                : true
+  footnote_nr             : 1
+  entity_output           : as_char
+  toc_levels              : 2..4
+  smart_quotes            : lsquo,rsquo,ldquo,rdquo
+  syntax_highlighter_opts:
+    disable               : true

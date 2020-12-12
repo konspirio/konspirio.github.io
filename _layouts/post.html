@@ -19,8 +19,8 @@ layout: default
         <a href='{{page.photo['creator_url']}}'>{{page.photo['creator']}}</a>
         {%- capture key %}{{page.photo['license']}}{% endcapture %}
         is licensed under
-        <a href="{{site.licenses[key]['url']}}" class="license">
-          {{site.licenses[key]['tag']}}
+        <a href="{{site.data.licenses[key]['url']}}" class="license">
+          {{site.data.licenses[key]['tag']}}
         </a>
       </figcaption>
     </figure>

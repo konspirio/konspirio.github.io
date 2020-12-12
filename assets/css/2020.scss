@@ -22,54 +22,38 @@ $mero-grid-offpart-sizes: (
   none: 0
 );
 
-$system-fonts: "MerovexSans", -apple-system, system-ui, "Segoe UI", Roboto, Lato, Helvetica, Arial, sans-serif;
-$serif-fonts: "MerovexSerif", Cambria, Georgia, "Times New Roman", Times, serif;
-$heading-fonts: IMFellEnglish, $serif-fonts;
+$system-fonts: "KonsprioSans", -apple-system, system-ui, "Segoe UI", Roboto, Lato, Helvetica, Arial, sans-serif;
+$serif-fonts: "KonsprioSerif", Cambria, Georgia, "Times New Roman", Times, serif;
+$heading-fonts: "KonsprioDisplay", $serif-fonts;
 $mono-fonts: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 $table-fonts: $system-fonts;
 
-$cornell: ( // Colors from Cornell's brand guidance.
-  'brand':    #A6192E,
-  'secondary':#49516D,
-  'red':      #EF3340,
-  'orange':   #ED8B00,
-  'yellow':   #A69219,
-  'green':    #64A70B,
-  'blue':     #0085CA,
-  'indigo':   #49516D,
-  'violet':   #794384,
-  'sea-grey': #94A596,
-  'gray':     #53565A,
-  'black':    #222222,
-  'iron-gall':#3E353B,
-  'white':    #F0EBE0,
-);
-$colors: ( // "Cranberry"
-  'brand':    #3B517C,
-  'secondary':#856932,
-  'ternary':  #bfa778,
-  'red':      #EF3340,
-  'orange':   #ED8B00,
-  'yellow':   #A69219,
-  'green':    #009a15,
-  'blue':     #00389a,
-  'indigo':   #49516D,
-  'violet':   #62009a,
-  'gray':     #594d55,
-  'black':    #231d21,
-  'iron-gall':#3E353B,
-  'white':    #fff7e9,
+$colors: ( // Colors from Cornell's brand guidance.
+  'brand':           #611327, // 9D2235
+  'secondary':       #2B5269,
+  'red':             #9D2235, // Red
+  'orange':          #CA6A29, // Orange
+  'fall-maple':      #DBC759, // Yellow
+  'founders-walk':   #707A33, // Green
+  'kings-river':     #007698, // Blue
+  'spiders-wart':    #655765, // Indigo
+  'birdsfoot-violet':#2F1332, // Violet
+  'pale-dawn':       #D5EAD9, // Sky Blue
+  'gray':            #424242,
+  'black':           #000000,
+  'iron-gall':       #303030,
+  'white':           #FFFFFF,
 );
 
 @import 'mero/functions';
 
 $mero-red:    clr('red');
 $mero-orange: clr('orange');
-$mero-yellow: clr('yellow');
-$mero-green:  clr('green');
-$mero-blue:   clr('blue');
-$mero-indigo: clr('indigo');
-$mero-violet: clr('violet');
+$mero-yellow: clr('fall-maple');
+$mero-green:  clr('founders-walk');
+$mero-blue:   clr('kings-river');
+$mero-indigo: clr('spiders-wart');
+$mero-violet: clr('birdsfoot-violet');
 
 $mero-body-bg: clr('white',100);
 $mero-footer-bg: clr('iron-gall');
@@ -81,23 +65,23 @@ $mero-brand:     clr('brand',100);
 $mero-primary:   $mero-brand;
 $mero-navbar-bg: clr('iron-gall', 700);
 $mero-code-bg:   clr('gray',500);
-$mero-background-image: '/assets/images/backgrounds/beige-paper.png';
+$mero-background-image: '';
 
 @import 'mero';
+@import 'fnord';
 @import 'posts';
 
-@include font('IMFellEnglish',           '../fonts/IMFellEnglish-Regular');
-@include font('IMFellEnglish-Italic',    '../fonts/IMFellEnglish-Italic');
+@include font('KonsprioDisplay',           '../fonts/Oswald-VariableFont_wght');
 
-@include font('MerovexSans',             '../fonts/SourceSansPro-Regular');
-@include font('MerovexSans-Italic',      '../fonts/SourceSansPro-Italic');
-@include font('MerovexSans-Bold',        '../fonts/SourceSansPro-Bold');
-@include font('MerovexSans-BoldItalic',  '../fonts/SourceSansPro-BoldItalic');
+@include font('KonsprioSans',             '../fonts/SourceSansPro-Regular');
+@include font('KonsprioSans-Italic',      '../fonts/SourceSansPro-Italic');
+@include font('KonsprioSans-Bold',        '../fonts/SourceSansPro-Bold');
+@include font('KonsprioSans-BoldItalic',  '../fonts/SourceSansPro-BoldItalic');
 
-@include font('MerovexSerif',            '../fonts/SourceSerifPro-Regular');
-@include font('MerovexSerif-Italic',     '../fonts/SourceSerifPro-Italic');
-@include font('MerovexSerif-Bold',       '../fonts/SourceSerifPro-Bold');
-@include font('MerovexSerif-BoldItalic', '../fonts/SourceSerifPro-BoldItalic');
+@include font('KonsprioSerif',            '../fonts/SourceSerifPro-Regular');
+@include font('KonsprioSerif-Italic',     '../fonts/SourceSerifPro-Italic');
+@include font('KonsprioSerif-Bold',       '../fonts/SourceSerifPro-Bold');
+@include font('KonsprioSerif-BoldItalic', '../fonts/SourceSerifPro-BoldItalic');
 
 .page-copyright {
   font-family: $system-fonts;

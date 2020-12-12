@@ -1,0 +1,12 @@
+---
+layout: page
+permalink: /posts/
+title: News & Random Thoughts
+regenerate: true
+---
+
+<ul class='posts'>
+  {%- for post in site.posts -%}
+  {% include post-list-item.html %}
+  {%- endfor -%}
+</ul>

@@ -1,0 +1,15 @@
+#fnord {
+    height: calc(100vh - 65px);
+    color: clr('white');
+    line-height: 0.3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 10vh;
+    flex-direction: column;
+    font-family: $heading-fonts;
+    h1 {
+        font-size: 20vh;
+    }
+    background-color: clr('brand');
+}

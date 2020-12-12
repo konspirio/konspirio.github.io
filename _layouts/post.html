@@ -9,10 +9,9 @@ layout: default
       {{ page.title | truncate: 6, "" }}
     </div>
     <h1 itemprop="headline">{{ page.title }}</h1>
-    {%- assign low = page.photo['image'] | replace: 'png', 'jpg'  %}
-    <figure style="background-image: url(/assets/images/low/articles/{{low}});" >
-      {%- assign image = page.photo['image'] %}
-      {%- include picture.html klass='articles' image=image %}
+    {%- assign image = page.photo['image'] | split: "." | first %}
+    <figure style="background-image: url(/assets/images/generated/{{image}}-low.jpg);" >
+      {%- include picture.html image=image %}
       <figcaption>
         <a href='{{page.photo['source_url']}}'>{{page.photo['caption']}}</a>
         by

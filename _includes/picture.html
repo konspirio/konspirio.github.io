@@ -1,24 +1,22 @@
 {%- comment %}
 https://gs.statcounter.com/screen-resolution-stats/all/united-states-of-america
 {%- endcomment %}
-{%- assign ext = include.image | split: "." | last %}
-{%- assign webp = include.image | replace: ext, "webp"  %}
-{%- assign webxp = webp | replace: ".webp", "@2x.webp"  %}
+{%- assign basename = include.image | split: "." | first %}
     <picture>
       <!-- Support Desktop -->
-      <source srcset="/assets/images/desktop/{{include.klass}}/{{webp}} 1920w,
-                      /assets/images/desktop/{{include.klass}}/{{webxp}} 2x"
+      <source srcset="/assets/images/generated/{{basename}}-1920.webp 1920w,
+                      /assets/images/generated/{{basename}}-1920@2x.webp 2x"
                       media="(min-width: 1024px)"
                       type="image/webp">
       <!-- Support Tablet -->
-      <source srcset="/assets/images/tablet/{{include.klass}}/{{webp}} 1020w,
-                      /assets/images/tablet/{{include.klass}}/{{webxp}} 2x"
+      <source srcset="/assets/images/generated/{{basename}}-1366.webp 1020w,
+                      /assets/images/generated/{{basename}}-1366@2x.webp 2x"
                       media="(min-width: 640px) and (max-width: 1023px)"
                       type="image/webp">
       <!-- Support Mobile -->
-      <source srcset="/assets/images/mobile/{{include.klass}}/{{webp}} 630w,
-                      /assets/images/mobile/{{include.klass}}/{{webxp}} 2x"
+      <source srcset="/assets/images/generated/{{basename}}-768.webp 630w,
+                      /assets/images/generated/{{basename}}-768@2x.webp 2x"
                       media="(max-width: 639px)"
                       type="image/webp">
-      <img src="/assets/images/{{include.klass}}/{{include.image}}" alt="" />
+      <img src="/assets/images/generated/{{include.image}}" alt="" />
     </picture>

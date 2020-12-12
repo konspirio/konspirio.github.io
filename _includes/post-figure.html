@@ -1,0 +1,13 @@
+<figure style="background-image: url(/assets/images/{{image}}-low.jpg);" >
+    {%- include picture.html image=image %}
+    <figcaption>
+      <a href='{{page.photo['source_url']}}'>{{page.photo['caption']}}</a>
+      by
+      <a href='{{page.photo['creator_url']}}'>{{page.photo['creator']}}</a>
+      {%- capture key %}{{page.photo['license']}}{% endcapture %}
+      is licensed under
+      <a href="{{site.data.licenses[key]['url']}}" class="license">
+        {{site.data.licenses[key]['tag']}}
+      </a>
+    </figcaption>
+  </figure>

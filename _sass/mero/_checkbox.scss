@@ -1,0 +1,37 @@
+// Checkbox
+
+// Variables
+$mero-checkbox-character: '\2714' !default;
+$mero-checkbox-radius: $mero-radius !default;
+
+
+%checkbox {
+  @extend %radio;
+  
+  + .checkable:before {
+    border-radius: $mero-checkbox-radius;
+    }
+
+  + .checkable:after {
+    content: $mero-checkbox-character;
+    background: none;
+    transform: scale(2) translateY(-25%);
+    visibility: hidden;
+    opacity: 0;
+    }
+
+  &:checked + .checkable:after {
+    color: $mero-black;
+    background: none;
+    transform: translateY(-50%);
+    transition: $mero-transition;
+    visibility: visible;
+    opacity: 1;
+    }
+  }
+
+// Define it for the element checkbox
+[type=checkbox] {
+  @extend %radio;
+  @extend %checkbox;
+  }

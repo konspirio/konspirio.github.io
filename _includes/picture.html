@@ -1,0 +1,24 @@
+{%- comment %}
+https://gs.statcounter.com/screen-resolution-stats/all/united-states-of-america
+{%- endcomment %}
+{%- assign ext = include.image | split: "." | last %}
+{%- assign webp = include.image | replace: ext, "webp"  %}
+{%- assign webxp = webp | replace: ".webp", "@2x.webp"  %}
+    <picture>
+      <!-- Support Desktop -->
+      <source srcset="/assets/images/desktop/{{include.klass}}/{{webp}} 1920w,
+                      /assets/images/desktop/{{include.klass}}/{{webxp}} 2x"
+                      media="(min-width: 1024px)"
+                      type="image/webp">
+      <!-- Support Tablet -->
+      <source srcset="/assets/images/tablet/{{include.klass}}/{{webp}} 1020w,
+                      /assets/images/tablet/{{include.klass}}/{{webxp}} 2x"
+                      media="(min-width: 640px) and (max-width: 1023px)"
+                      type="image/webp">
+      <!-- Support Mobile -->
+      <source srcset="/assets/images/mobile/{{include.klass}}/{{webp}} 630w,
+                      /assets/images/mobile/{{include.klass}}/{{webxp}} 2x"
+                      media="(max-width: 639px)"
+                      type="image/webp">
+      <img src="/assets/images/{{include.klass}}/{{include.image}}" alt="" />
+    </picture>

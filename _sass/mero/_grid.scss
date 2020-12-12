@@ -1,0 +1,168 @@
+$mero-grid-gutter: $mero-separation !default;
+$mero-grid-gutter-vertical: $mero-grid-gutter !default;
+$mero-grid-gutter-horizontal: $mero-grid-gutter !default;
+// Real code
+$mero-grid-gutter: 10px !default;
+
+$mero-grid-gutter: $mero-separation !default;
+$mero-grid-gutter-vertical: $mero-grid-gutter !default;
+$mero-grid-gutter-horizontal: $mero-grid-gutter !default;
+
+$mero-grid-sizes: 500 600 700 800 900 1000 1100 1200 1300 1400 1500 1600 1700 1800 1900 2000 !default;
+$mero-grid-children: $mero-grid-sizes !default;
+$mero-grid-off: $mero-grid-sizes !default;
+
+$mero-grid-count: one two three four five six seven eight nine ten eleven twelve !default;
+$mero-grid-count-sizes: (
+  one: 100%,
+  two: 50%,
+  three: 33.33333%,
+  four: 25%,
+  five: 20%,
+  six: 16.66666%,
+  seven: 14.28571%,
+  eight: 12.5%,
+  nine: 11.11111%,
+  ten: 10%,
+  eleven: 9.09091%,
+  twelve: 8.33333%
+);
+$mero-grid-part: full half third two-third fourth three-fourth fifth two-fifth three-fifth four-fifth sixth !default;
+$mero-grid-part-sizes: (
+  full: 100%,
+  half: 50%,
+  third: 33.33333%,
+  two-third: 66.66666%,
+  fourth: 25%,
+  three-fourth: 75%,
+  fifth: 20%,
+  two-fifth: 40%,
+  three-fifth: 60%,
+  four-fifth: 80%,
+  sixth: 16.66666%
+);
+$mero-grid-offpart: none half third two-third fourth three-fourth fifth two-fifth three-fifth four-fifth sixth !default;
+$mero-grid-offpart-sizes: (
+  half: 50%,
+  third: 33.33333%,
+  two-third: 66.66666%,
+  fourth: 25%,
+  three-fourth: 75%,
+  fifth: 20%,
+  two-fifth: 40%,
+  three-fifth: 60%,
+  four-fifth: 80%,
+  sixth: 16.66666%,
+  none: 0
+);
+
+
+@function in($list, $var) {
+  @return (false != index($list, $var));
+}
+
+.flex {
+  display: -ms-flexbox;
+  display: flex;
+  margin-left: -$mero-grid-gutter-horizontal;
+  width: calc(100% + #{$mero-grid-gutter-horizontal});
+  flex-wrap: wrap;
+  transition: all .3s ease;
+}
+
+.flex > * {
+  box-sizing: border-box;
+  flex: 1 1 auto; /* Default for IE10 bug */
+  padding-left: $mero-grid-gutter-horizontal;
+  padding-bottom: $mero-grid-gutter-vertical;
+}
+
+.flex {
+  &[class*="one"],
+  &[class*="two"],
+  &[class*="three"],
+  &[class*="four"],
+  &[class*="five"],
+  &[class*="six"],
+  &[class*="seven"],
+  &[class*="eight"],
+  &[class*="nine"],
+  &[class*="ten"],
+  &[class*="eleven"],
+  &[class*="twelve"] {
+    > * {
+      flex-grow: 0;
+    }
+  }
+}
+
+.flex.grow > * {
+  flex-grow: 1;
+}
+%center {
+  justify-content: center;
+}
+.center {
+  @extend %center;
+}
+
+@each $count in $mero-grid-count {
+  .#{$count} > * {
+    width: map-get($mero-grid-count-sizes, $count);
+  }
+}
+
+@each $i in $mero-grid-sizes {
+  @media all and (min-width: unquote($i + 'px')) {
+    @each $count in $mero-grid-count {
+      .#{$count}-#{$i} > * {
+        width: map-get($mero-grid-count-sizes, $count);
+      }
+    }
+  }
+}
+
+
+// Children sizing
+@each $part in $mero-grid-part {
+  .#{$part} {
+    width: map-get($mero-grid-part-sizes, $part);
+  }
+}
+.none { display: none; }
+
+
+@each $i in $mero-grid-sizes {
+  @media all and (min-width: unquote($i + 'px')) {
+    @each $part in $mero-grid-part {
+      .#{$part}-#{$i} {
+        width: map-get($mero-grid-part-sizes, $part);
+        display: block;
+      }
+    }
+  }
+}
+@each $i in $mero-grid-children {
+  @media all and (min-width: unquote($i + 'px')) {
+    .none-#{$i} { display: none; }
+  }
+}
+
+
+
+@each $part in $mero-grid-offpart {
+  .off-#{$part} {
+    margin-left: map-get($mero-grid-offpart-sizes, $part);
+  }
+}
+
+
+@each $i in $mero-grid-sizes {
+  @media all and (min-width: unquote($i + 'px')) {
+    @each $part in $mero-grid-offpart {
+      .off-#{$part}-#{$i} {
+        margin-left: map-get($mero-grid-offpart-sizes, $part);
+      }
+    }
+  }
+}

@@ -1,0 +1,49 @@
+// Variables
+$mero-input-height: 2.1em !default;
+$mero-input-padding: $mero-separation / 2 $mero-separation !default;
+$mero-input-background: $mero-white !default;
+
+// Top level selector
+%input {
+  line-height: 1.5;
+  margin: 0;
+  // @FIX color: text-contrast($mero-input-background, 7);
+  font-family: $system-fonts;
+  height: $mero-input-height;
+  padding: calc($mero-input-padding - 4px);
+
+  // border: 4px solid $mero-input-background;
+  border: $mero-border;
+  background-color: $mero-input-background;
+  border-radius: $mero-radius;
+  transition: $mero-transition;
+  width: 100%;
+  &::placeholder {
+    color: text-contrast($mero-body-bg, 7);
+    opacity: 60%;
+  }
+
+  &:focus {
+    border: 4px dotted $mero-red;
+    outline: 0;
+  }
+}
+// Browser treats unknow type as "text", so we'll do the same
+input,
+textarea,
+.select select {
+  @extend %input;
+}
+
+textarea {
+  height: auto;
+}
+
+[type=file],
+[type=color] {
+  cursor: pointer;
+}
+
+[type=file] {
+  height: auto;
+}

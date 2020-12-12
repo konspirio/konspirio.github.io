@@ -1,0 +1,57 @@
+// Radio button
+
+// Variables
+$mero-radio-size: 1em !default;
+$mero-radio-border: 1px solid #aaa !default;
+
+// 
+%radio {
+  opacity: 0;
+  width: 0;
+  position: absolute;
+  display: inline-block;
+  
+  + .checkable:hover:before,
+  &:focus + .checkable:before {
+    border: 1px solid $mero-brand;
+    }
+  
+  + .checkable {
+    position: relative;
+    cursor: pointer;
+    padding-left: $mero-radio-size * 1.5;
+    margin-right: .6em;
+        
+    &:before,
+    &:after {
+      content: '';
+      position: absolute;
+      display: inline-block;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: $mero-radio-size;
+      line-height: $mero-radio-size;
+      color: transparent;
+      font-family: sans;
+      text-align: center;
+      box-sizing: border-box;
+      width: $mero-radio-size;
+      height: $mero-radio-size;
+      border-radius: 50%;
+      transition: $mero-transition;
+      }
+
+    &:before {            
+      border: $mero-radio-border;
+      }
+    }
+
+  &:checked + .checkable:after {
+    background: #555;
+    transform: scale(.5) translateY(-100%);
+    }
+  }
+[type=radio] {
+  @extend %radio;
+  }

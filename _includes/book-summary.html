@@ -1,0 +1,35 @@
+<article class="book-summary">
+  <aside>
+    {% include picture.html klass='covers' image=book.cover.image%}
+  </aside>
+  <section>
+    <h3>{{ book.title }}</h3>
+    <p>
+      {{ book.excerpt | remove: '<p>' | remove: "</p>"}}
+    </p>
+    {% if book.released %}
+    <!-- Book Purchase CTA -->
+    <div data-toggle="buttons" class='cta-buttons'>
+      {%- if book.amazon.pback -%}
+    	<a href='{{book.amazon.pback}}' onClick="ga('send', 'event', 'Button', 'Click', 'Amazon: {{book['title']}} Paperback');" target='_blank' >
+        {% include icon.html icon='fad fa-book-open' -%}
+        <span>Buy {{book['title']}} as </span>Paperback
+      </a>
+      {% endif %}
+      {%- if book.amazon.ebook -%}
+    	<a class='success' href='{{book.amazon.ebook}}' onClick="ga('send', 'event', 'Button', 'Click', 'Amazon: {{book['title']}} Kindle');" target='_blank' >
+        {% include icon.html icon='fad fa-tablet-android-alt' -%}
+        <span>Buy {{book['title']}} as </span>Kindle
+      </a>
+      {% endif %}
+      {%- if book.amazon.audible -%}
+      <a class='warning' href='{{book.amazon.ebook}}' onClick="ga('send', 'event', 'Button', 'Click', 'Amazon: {{book['title']}} Audible');" target='_blank' >
+        {% include icon.html icon='fab fa-audible' -%}
+        <span>Buy {{book['title']}} as </span>Audible
+      </a>
+      {%- endif -%}
+    </div>
+    <!-- /Book Purchase CTA -->
+    {% endif %}
+  </section>
+</article>

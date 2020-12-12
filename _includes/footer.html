@@ -1,0 +1,10 @@
+<footer{%if page.klass == "home" %} style="margin-bottom: 0in;"{%endif%}>
+    {%- if site.venue %}
+    <div>
+    {% include icon.html icon='far fa-laugh' %} Hello from <a href="/uses">{{site.venue}}</a>.
+    </div>
+    {%- endif %}
+    <div><a href='{{'/privacy/'}}'>Privacy</a></div>
+    <div><a href='{{'/permissions/'}}'>Terms of Use</a></div>
+    <div>{% include icon.html icon='far fa-copyright' %} 1998&ndash;{{ site.time | date: '%Y' }} Ben Wilson</div>
+</footer>

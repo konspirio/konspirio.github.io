@@ -1,0 +1,17 @@
+blockquote {
+  border-left: 0.5rem solid rgba(#808080,0.5);
+  background: rgba(#808080,0.1);
+  margin: 1rem 0;
+  padding: 0 1rem 1rem 1rem;
+  position: relative;
+  font-style: italic;
+  &:before {
+    content: "“";
+    font-size: 1in;
+    font-family: Oswald, var(--font-heading);
+    line-height: 0.25in;
+    margin-right: 1rem;
+    position: relative;
+    top: 0.25in;
+  }
+}

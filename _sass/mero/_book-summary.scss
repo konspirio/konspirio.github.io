@@ -1,0 +1,33 @@
+.book-summary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1ch;
+  &+.book-summary {
+    margin-top: 5vh;
+  }
+  aside {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1 0 10ch;
+    img {
+      max-height: 450px;
+      max-width: 250px;
+      box-shadow: 0.3em 0.3em 0.3em rgba($mero-black,0.2);
+    }
+  }
+  section {
+    flex: 1 0 30ch;
+    .cta-buttons {
+      text-align: center;
+      a {
+        @extend %button;
+        margin: 0.5em;
+        text-decoration: none;
+        span {
+          @extend %sr-only;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,99 @@
+$body-text-color: text-contrast($mero-body-bg, 7);
+article {
+  &.page {
+    z-index: 0;
+    .lead {
+      font-size: 1.1em;
+      line-height: 1.3;
+      padding-bottom: 2vh;
+    }
+    font-family: $article-font;
+    h1, h2, h3 {
+      font-family: $heading-fonts;
+    }
+    .ghost {
+      font-size: 40vw;
+      line-height: 1;
+      position: absolute;
+      top: 10vh;
+      left: 0;
+      padding-left: 5vw;
+      color: $body-text-color;
+      opacity: 7%;
+      white-space: nowrap;
+      overflow-x: hidden;
+      font-family: $heading-fonts;
+      z-index: -500;
+      width: 100%;
+    }
+    h2 {
+      border-bottom: 1px solid;
+      border-color: $body-text-color;
+      text-shadow: 1px 1px 1px $mero-body-bg;
+      padding-bottom: 0;
+      margin-bottom: 1em;
+    }
+    p {
+      letter-spacing: -0.03;
+      line-height: 1.58;
+      &+ p {
+        text-indent: 1em;
+      }
+    }
+    padding: 80px 10px 10px 10px;
+    max-width: 70ch;
+  }
+  text-align: left;
+  width: 90%;
+  max-width: 50em;
+  margin: 0 auto;
+  font-family: $article-font;
+  .metadata {
+    font-family: $system-fonts;
+    padding: 1vh;
+    font-size: 80%;
+    opacity: 80%;
+    text-align: center;
+    .tags {
+      padding: 1vh;
+      a {
+        text-decoration: none;
+      }
+    }
+  }
+  &+ article {
+    padding: 10px;
+  }
+  blockquote {
+    padding: 1em 6%;
+    font-family: $system-fonts;
+    cite {
+      display: block;
+      opacity: 0.6;
+    }
+  }
+  small {
+    font-family: $system-fonts;
+  }
+
+  .footnotes {
+    border-top: 2px solid $body-text-color;
+    font-size: 0.8em;
+    font-family: $system-fonts;
+  }
+  .related {
+    display: flex;
+    justify-content: space-between;
+    margin: 1em 0;
+    a {
+      &.next {
+        text-align: right;
+      }
+    }
+  }
+}
+.post-item {
+  .svg-inline--fa {
+    color: $mero-brand;
+  }
+}

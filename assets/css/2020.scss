@@ -1,0 +1,107 @@
+---
+---
+
+$mero-grid-sizes: 600 1100;
+$mero-grid-count: one two three four;
+$mero-grid-count-sizes: (
+  three: 33.33333%,
+  two: 50%,
+);
+$mero-grid-part: full third two-third;
+$mero-grid-part-sizes: (
+  full: 100%,
+  third: 33.33333%,
+  half: 50%,
+  two-third: 66.66666%,
+);
+$mero-grid-offpart: none third two-third;
+$mero-grid-offpart-sizes: (
+  third: 33.33333%,
+  two-third: 66.66666%,
+  half: 50%,
+  none: 0
+);
+
+$system-fonts: "MerovexSans", -apple-system, system-ui, "Segoe UI", Roboto, Lato, Helvetica, Arial, sans-serif;
+$serif-fonts: "MerovexSerif", Cambria, Georgia, "Times New Roman", Times, serif;
+$heading-fonts: IMFellEnglish, $serif-fonts;
+$mono-fonts: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+$table-fonts: $system-fonts;
+
+$cornell: ( // Colors from Cornell's brand guidance.
+  'brand':    #A6192E,
+  'secondary':#49516D,
+  'red':      #EF3340,
+  'orange':   #ED8B00,
+  'yellow':   #A69219,
+  'green':    #64A70B,
+  'blue':     #0085CA,
+  'indigo':   #49516D,
+  'violet':   #794384,
+  'sea-grey': #94A596,
+  'gray':     #53565A,
+  'black':    #222222,
+  'iron-gall':#3E353B,
+  'white':    #F0EBE0,
+);
+$colors: ( // "Cranberry"
+  'brand':    #3B517C,
+  'secondary':#856932,
+  'ternary':  #bfa778,
+  'red':      #EF3340,
+  'orange':   #ED8B00,
+  'yellow':   #A69219,
+  'green':    #009a15,
+  'blue':     #00389a,
+  'indigo':   #49516D,
+  'violet':   #62009a,
+  'gray':     #594d55,
+  'black':    #231d21,
+  'iron-gall':#3E353B,
+  'white':    #fff7e9,
+);
+
+@import 'mero/functions';
+
+$mero-red:    clr('red');
+$mero-orange: clr('orange');
+$mero-yellow: clr('yellow');
+$mero-green:  clr('green');
+$mero-blue:   clr('blue');
+$mero-indigo: clr('indigo');
+$mero-violet: clr('violet');
+
+$mero-body-bg: clr('white',100);
+$mero-footer-bg: clr('iron-gall');
+
+$article-font: $serif-fonts;
+$brand-font: $heading-fonts;
+
+$mero-brand:     clr('brand',100);
+$mero-primary:   $mero-brand;
+$mero-navbar-bg: clr('iron-gall', 700);
+$mero-code-bg:   clr('gray',500);
+$mero-background-image: '/assets/images/backgrounds/beige-paper.png';
+
+@import 'mero';
+@import 'posts';
+
+@include font('IMFellEnglish',           '../fonts/IMFellEnglish-Regular');
+@include font('IMFellEnglish-Italic',    '../fonts/IMFellEnglish-Italic');
+
+@include font('MerovexSans',             '../fonts/SourceSansPro-Regular');
+@include font('MerovexSans-Italic',      '../fonts/SourceSansPro-Italic');
+@include font('MerovexSans-Bold',        '../fonts/SourceSansPro-Bold');
+@include font('MerovexSans-BoldItalic',  '../fonts/SourceSansPro-BoldItalic');
+
+@include font('MerovexSerif',            '../fonts/SourceSerifPro-Regular');
+@include font('MerovexSerif-Italic',     '../fonts/SourceSerifPro-Italic');
+@include font('MerovexSerif-Bold',       '../fonts/SourceSerifPro-Bold');
+@include font('MerovexSerif-BoldItalic', '../fonts/SourceSerifPro-BoldItalic');
+
+.page-copyright {
+  font-family: $system-fonts;
+  font-size: 80%;
+  text-align: center;
+  opacity: 20%;
+}

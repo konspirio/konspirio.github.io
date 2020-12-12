@@ -1,0 +1,21 @@
+.post-previews {
+  margin-bottom: 3vh;
+  .post-preview {
+  max-width: 70ch;
+  &+ .post-preview {
+    border-top: 0.2vh solid rgba($mero-body-fg,0.5);
+    margin-top: 3vh;
+  }
+  .meta, footer {
+    opacity: 70%;
+    font-size: 85%;
+    font-style: italic;
+    a {
+      color: $mero-body-fg;
+    }
+  }
+  p {
+    margin-top: 0;
+  }
+}
+}

@@ -1,0 +1,94 @@
+// Inspired by https://github.com/franciscop/picnic
+@import './mero/functions';
+
+$mero-color-variation: 10% !default;
+$mero-transparency: .2 !default;
+
+$mero-error:        clr('red') !default;
+$mero-success:      clr('green') !default;
+$mero-warning:      clr('orange') !default;
+$mero-brand:        clr('brand') !default;
+
+$mero-red: clr('red');
+$mero-orange: clr('orange');
+$mero-yellow: clr('yellow');
+$mero-green: clr('green');
+$mero-blue: clr('blue');
+$mero-indigo: clr('indigo');
+$mero-violet: clr('violet');
+
+$mero-white: clr('white') !default;
+$mero-black: clr('black') !default;
+$mero-dull:  clr('gray') !default;
+
+$navbar-bg: clr('brand') !default;
+
+// Spaces
+$mero-separation: .6em !default;
+$mero-breakpoint: 60em !default;
+
+// Shapes
+$mero-radius: .2em !default;
+$mero-border: 1px solid $mero-dull !default;
+$mero-shadow: 0 0 .2em rgba($mero-dull, $mero-transparency) !default;
+$mero-overlay: rgba($mero-black, $mero-transparency);
+
+// Transitions
+$mero-transition: all .3s;
+
+@import './mero/normalize';
+@import './mero/z-depth';
+
+@import './mero/generic';
+
+// Simple Elements
+@import './mero/label';
+@import './mero/button';
+@import './mero/code';
+
+// Forms
+@import './mero/input';
+@import './mero/select';
+@import './mero/radio';
+@import './mero/checkbox';
+
+// Components
+@import './mero/grid';
+@import './mero/table';
+
+// Extra
+@import './mero/stack';
+@import './mero/card';
+@import './mero/modal';
+
+@import './mero/dropimage';
+@import './mero/tabs';
+@import './mero/tooltip';
+
+// My Flair
+
+@import './mero/footer';
+@import './mero/home';
+
+@import './mero/article';
+
+@import './mero/framing';
+@import './mero/figure';
+@import './mero/alert';
+@import './mero/book-summary';
+@import './mero/post-preview';
+@import './mero/navbar';
+
+@media (prefers-color-scheme: dark) {
+  img:not([src*=".svg"]), .dropimage {
+    filter: invert(1) hue-rotate(180deg) saturate(50%);
+  }
+  html, body > header, body > footer, .invert {
+    filter: invert(1) hue-rotate(180deg);
+  }
+  .invert {
+    img {
+      filter: invert(0) hue-rotate(0);
+    }
+  }
+}

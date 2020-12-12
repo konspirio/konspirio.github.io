@@ -1,0 +1,51 @@
+---
+layout: default
+---
+
+<article class='page'>
+  {%include related-posts.html %}
+  <header>
+    <div class="ghost">
+      {{ page.title | truncate: 6, "" }}
+    </div>
+    <h1 itemprop="headline">{{ page.title }}</h1>
+    {%- assign low = page.photo['image'] | replace: 'png', 'jpg'  %}
+    <figure style="background-image: url(/assets/images/low/articles/{{low}});" >
+      {%- assign image = page.photo['image'] %}
+      {%- include picture.html klass='articles' image=image %}
+      <figcaption>
+        <a href='{{page.photo['source_url']}}'>{{page.photo['caption']}}</a>
+        by
+        <a href='{{page.photo['creator_url']}}'>{{page.photo['creator']}}</a>
+        {%- capture key %}{{page.photo['license']}}{% endcapture %}
+        is licensed under
+        <a href="{{site.licenses[key]['url']}}" class="license">
+          {{site.licenses[key]['tag']}}
+        </a>
+      </figcaption>
+    </figure>
+    <div class="metadata">
+      {% include icon.html icon='fad fa-user-circle' -%}
+      <span>Ben Wilson</span>
+      {% include icon.html icon='fad fa-calendar-day' -%}
+      <time itemprop="datePublished" datetime="{{ page.date | date: "%Y-%m-%d" }}">
+        {{ page.date | date: "%e %B %Y" }}
+      </time>
+      <span>
+        {% include icon.html icon='fad fa-popcorn' -%}
+        {%- include read-time.html content=content -%}
+      </span>
+      <div class="tags">
+        {% include icon.html icon='fad fa-tags' -%}
+        {% for tag in page.tags %}
+          {%- include tag-link.html tag=tag %}
+        {%- endfor %}
+      </div>
+    </div>
+  </header>
+  <p class='lead'>{{ page.excerpt| remove: '<p>' | remove: '</p>' }}</p>
+  {% include historical-research-series.html %}
+  {{ content | remove_first:page.excerpt }}
+  {%include related-posts.html %}
+  {% include page-copyright.html %}
+</article>

@@ -1,0 +1,12 @@
+{% if page.share %}
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@{{site.author.twitter}}" />
+<meta name="twitter:title" content="{{site.title}}: {{page.title}}" />
+<meta name="twitter:description"
+  content="{% if page.description %}{{page.description | truncate: 110}}{% else %}{{ site.description }}{% endif %}" />
+<meta name="twitter:image:src" content="https://s3.amazonaws.com/dausha/images/articles/{{page.photo['image']}}">
+<meta name="twitter:image:width" content="930">
+<meta name="twitter:image:height" content="620">
+<!-- /Twitter Card -->
+{% endif %}

@@ -1,0 +1,86 @@
+$mero-body-fg: text-contrast($mero-body-bg, 7) !default;
+$mero-background-image: false !default;
+
+@media
+(-webkit-min-device-pixel-ratio: 2),
+(min-resolution: 192dpi) {
+  /* Retina-specific stuff here */
+  body {
+    font-weight: 450;
+  }
+}
+@media screen {
+  body {
+    display: flex;
+    font-size: clamp(18px, 2vw, 22px);
+    flex-direction: column;
+  }
+}
+html {
+  scroll-behavior: smooth;
+  font-display:optional;
+  body {
+    img {
+      max-width: 100%;
+    }
+    ;
+    @if $mero-background-image {
+      background: $mero-body-bg url($mero-background-image);
+    }
+    @else {
+      background: $mero-body-bg;
+    }
+    color: $mero-body-fg;
+    & > header {
+      display: flex;
+      height: 3em;
+      align-items: center;
+      justify-content: space-around;
+    }
+    & > main {
+      flex-grow: 1;
+      ::selection {
+        background-color: $mero-brand;
+        color: $mero-white
+      }
+      min-height: calc(100vh - 4.5em);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      font-family: $system-fonts;
+      strong, b {
+        font-weight: bold;
+      }
+      em {
+        font-style: italic;
+      }
+    }
+    & > footer {
+      display: flex;
+      line-height: 1;
+      a {
+        text-decoration: none;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+      min-height: 2.5em;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: center;
+      font-size: 0.85rem;
+      width: 100%;
+      & > * {
+      }
+    }
+  }
+}
+@media all and (max-width: 60em) {
+  h1, .tags, .related a { text-align: center !important;}
+  article {
+    margin: 1em;
+  }
+  .posts {
+    li { text-align: center;}
+  }
+}

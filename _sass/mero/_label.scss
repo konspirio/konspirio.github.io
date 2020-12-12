@@ -1,0 +1,46 @@
+// Label of text
+$mero-label-padding: $mero-separation / 2 $mero-separation * 1.5 !default;
+$mero-label-radius: $mero-radius !default;
+
+// Styles
+%label {
+  display: inline-block;
+  text-align: center;
+  letter-spacing: inherit;
+  margin: 0;
+  padding: $mero-label-padding;
+  vertical-align: middle;
+  background: $mero-brand;
+  @debug $mero-brand;
+  color: text-bw($mero-brand);
+  border: 0;
+  border-radius: $mero-label-radius;
+  width: auto;
+
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  // Colors
+  &.success {
+    background: $mero-success;
+  }
+
+  &.warning {
+    background: $mero-warning;
+  }
+  &.brand {
+    background: $mero-brand;
+  }
+  &.error {
+    background: $mero-error;
+  }
+
+  &.pseudo {
+    background-color: transparent;
+    color: inherit;
+  }
+}

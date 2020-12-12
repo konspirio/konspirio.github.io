@@ -1,0 +1,54 @@
+<header>
+      <nav>
+        <a href="{{ '/#featured' }}" class="brand">
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg"
+             viewBox="0 0 450.000000 450.000000"
+             preserveAspectRatio="xMidYMid meet" style="height: 1em;">
+            <text x="350" y="80" font-size="40">®</text>
+            <g transform="translate(0.000000,450.000000) scale(0.100000,-0.100000)" stroke="none">
+              <path d="M1990 4070 c-367 -78 -672 -314 -839 -648 -38 -76 -83 -211 -102
+              -307 -20 -99 -18 -380 3 -465 9 -36 15 -67 13 -69 -7 -6 -188 68 -250 103
+              l-60 34 2 58 c6 154 120 385 267 542 27 29 46 55 43 58 -9 10 -332 -123 -477
+              -197 -241 -122 -388 -237 -439 -342 -31 -64 -27 -169 9 -241 170 -337 1099
+              -650 2000 -673 836 -21 1798 237 2116 569 79 82 106 135 112 220 4 59 1 75
+              -22 122 -57 116 -216 237 -471 361 -158 77 -434 189 -442 181 -3 -3 16 -29 42
+              -58 126 -140 231 -357 268 -556 8 -42 -14 -65 -110 -111 -54 -27 -244 -101
+              -257 -101 -1 0 6 37 16 83 70 314 5 654 -177 928 -179 269 -469 459 -784 514
+              -118 21 -352 19 -461 -5z"/>
+              <path d="M1213 1722 c59 -66 114 -125 122 -132 8 -7 72 -21 142 -32 71 -11
+              134 -23 142 -27 26 -13 153 -228 246 -416 103 -207 187 -440 227 -627 l23
+              -108 48 0 47 0 0 368 0 369 -25 13 c-24 13 -65 83 -65 111 0 8 9 33 20 57 15
+              34 29 47 66 64 40 17 52 19 85 9 20 -6 51 -27 68 -46 26 -30 31 -44 31 -87 0
+              -45 -4 -54 -40 -90 l-40 -40 0 -364 0 -364 45 0 c41 0 45 3 51 28 94 411 230
+              738 434 1042 l57 85 122 19 c68 10 131 20 141 23 20 5 245 251 237 259 -3 3
+              -67 -8 -144 -25 -357 -77 -618 -105 -983 -106 -365 0 -604 24 -955 97 -82 17
+              -163 33 -180 36 -26 4 -19 -7 78 -116z"/>
+            </g>
+          </svg>
+          <span>{{site.title}}</span>
+          {%- if site.subtitle %}
+          <span class='subtitle'>{{site.subtitle}}</span>
+          {% endif %}
+        </a>
+        <!-- responsive-->
+        <input id="bmenub" type="checkbox" class="show">
+        <label for="bmenub" class="burger pseudo button">&#8801;<span class='sr-only'>menu</span></label>
+        <div class="menu">
+          <a class='pseudo' href="/#featured" id='home-link'>
+            {% include icon.html icon='fad fa-home' %} Home
+          </a>
+          <a class='pseudo' href="{{ '/#books' }}">
+            {% include icon.html icon='fad fa-books' %} Books
+          </a>
+          <a class='pseudo' href="{{ '/#bio' }}">
+            {% include icon.html icon='fad fa-id-card' %} Bio
+          </a>
+          <a class='pseudo' rel="prefetch" href="{{ '/posts/' }}">
+            {% include icon.html icon='fad fa-newspaper' %} Blog
+          </a>
+          <a rel="prefetch" href="{{ '/subscribe/' }}" class="subscribe">
+            {% include icon.html icon='fad fa-envelope' %} Become an Insider
+          </a>
+        </div>
+      </nav>
+    </header>

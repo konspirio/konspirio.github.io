@@ -1,0 +1,36 @@
+
+.alert {
+      align-items: center;
+      background: rgba(#808080,0.2);
+      border-radius: $mero-radius;
+      border: 0.3vh solid gray;
+      display: flex;
+      flex-flow: column;
+      font-family: $system-fonts;
+      justify-content: center;
+      margin: 1vh;
+      p, h4 {
+        &:last-of-type {
+          margin: 0.5vh 1vh;
+        }
+        font-size: 0.8em;
+      }
+      h4 {
+        font-size: 1.0em;
+      }
+      &.info {
+        @include alert-colors($mero-blue);
+      }
+      &.warning {
+        @include alert-colors($mero-orange);
+      }
+      &.danger, &.error {
+        @include alert-colors($mero-red);
+      }
+      &.brand {
+        @include alert-colors($mero-brand);
+      }
+      &.success {
+        @include alert-colors($mero-green);
+      }
+    }

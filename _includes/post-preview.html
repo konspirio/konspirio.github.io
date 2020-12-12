@@ -1,0 +1,15 @@
+<article class="post-preview">
+  {%- assign image = post.photo['image'] %}
+  <a href='{{post.url}}'><h3>{{post.title}}</h3></a>
+  <span class="meta">Posted on 
+    <time datetime="{{ post.date | date: "%Y-%m-%d" }}">
+      {{ post.date | date: "%e %B %Y" -}}
+    </time>
+  </span>
+  {{post.excerpt}}
+  <footer>
+      {% for tag in post.tags %}
+      # {% include tag-link.html tag=tag %}
+      {%endfor%}
+  </footer>
+</article>

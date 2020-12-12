@@ -1,0 +1,22 @@
+<h2 id='code'>Code</h2>
+<pre>
+  <code>
+    require "awesome_print"
+    require 'shellwords'
+    src_dir = ""
+    images = []
+    Dir["_posts/*.*"].each do |mdf|
+      open(mdf).grep(/image:/).map do |i|
+        i.gsub(/.*?image:\s+/,"")
+        .gsub(/"/,"")
+        .chomp
+        end.each do |img|
+          src_file = src_dir + img
+          if File.exist?(src_file)
+            webp = "assets/images/articles/#{File.basename(img, File.extname(img))}.webp"
+            puts `cwebp #{src_file.shellescape} -o #{webp}`
+          end
+        end
+    end
+  </code>
+</pre>

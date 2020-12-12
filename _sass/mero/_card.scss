@@ -1,0 +1,142 @@
+// Card
+// This represents a self-contained, replicable entity
+
+// Variables
+$mero-card-shadow: 0 !default;
+$mero-card-border: $mero-border !default;
+$mero-card-radius: $mero-radius !default;
+$mero-card-bg: $mero-white !default;
+// Styles
+
+// http://8gramgorilla.com/mastering-sass-extends-and-placeholders/
+%card {
+  font-family: $system-fonts;
+  position: relative;
+  box-shadow: $mero-card-shadow;
+  border-radius: $mero-card-radius;
+  border: $mero-card-border;
+  overflow: hidden;
+  text-align: left;
+  background: $mero-card-bg;
+  margin-bottom: $mero-separation;
+  padding: 0;
+  transition: all .3s ease;
+
+  &.hidden,
+  :checked + & {
+    font-size: 0;
+    padding: 0;
+    margin: 0;
+    border: 0;
+  }
+  .card-labels {
+    a { 
+      @extend %label;
+      // padding: 0 2px;
+      line-height: 1;
+      font-size: 60%;
+      text-decoration: none;
+    }
+  }
+
+  // Make sure that nothing overflows
+  > * {
+    max-width: 100%;
+    display: block;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  // The first part from the card
+  header,
+  section,
+  > p {
+    padding: .6em .8em;
+    }
+
+  section {
+    padding: .6em .8em 0;
+  }
+
+  hr {
+    border: none;
+    height: 1px;
+    background-color: $mero-dull;
+  }
+
+  header {
+    font-weight: bold;
+    position: relative;
+    border-bottom: 1px solid $mero-dull;
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      padding: 0;
+      margin: 0 2em 0 0;
+      line-height: 1;
+      display: inline-block;
+      vertical-align: text-bottom;
+      }
+
+    &:last-child {
+      border-bottom: 0;
+      }
+    }
+
+  footer {
+    padding: .8em;
+    }
+
+  p {
+    margin: $mero-separation / 2 0;
+
+    &:first-child {
+      margin-top: 0;
+      }
+
+    &:last-child {
+      margin-bottom: 0;
+      }
+    }
+
+  > p {
+    margin: 0;
+    padding-right: 2.5em;
+    }
+
+  .close {
+    position: absolute;
+    top: .4em;
+    right: .3em;
+    font-size: 1.2em;
+    padding: 0 .5em;
+    cursor: pointer;
+    width: auto;
+
+    &:hover {
+      color: $mero-error;
+      }
+    }
+
+  h1 + .close {
+    margin: .2em;
+    }
+
+  h2 + .close {
+    margin: .1em;
+    }
+
+  .dangerous {
+    background: $mero-error;
+    float: right;
+    }
+  }
+.card {
+  @extend %card;
+}

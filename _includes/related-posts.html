@@ -1,0 +1,10 @@
+      <aside class="related">{% if page.previous.url %}
+        <a rel="prefetch" class="prev" href="{{page.previous.url}}">&laquo;
+          Previous: {{page.previous.title}}
+        </a>
+        {%- endif -%}
+        {% if page.next.url %}
+        <a rel="prefetch" class="next" href="{{page.next.url}}">
+          Next: {{page.next.title}} &raquo;
+        </a>
+      {% endif %}</aside>

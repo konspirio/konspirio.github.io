@@ -1,0 +1,40 @@
+.zebra {
+  backdrop-filter: unquote("contrast(0.8)")
+}
+table {
+  text-align: left;
+  font-family: $system-fonts;
+  table-layout:fixed;
+  width:100%;
+  overflow-x: scroll;
+  scroll-behavior: auto;
+  @extend .z-depth-1;
+  margin-bottom: 1.6em;
+  background: $mero-body-bg;
+  color: text-contrast($mero-body-bg,7);
+  border-radius: 4px;
+  th[scope=col], th {
+    background: $mero-brand;
+    color: text-contrast($mero-brand,7);
+    text-align: left;
+  }
+  th[scope=row] {
+    background: transparent;
+  }
+  td, th {
+    padding: 0.3em 2.4em 0.3em 0.6em;
+  }
+  
+  tr.success {
+    @include alert-colors($mero-green);
+  }
+  tr.warning {
+    @include alert-colors($mero-orange);
+  }
+  tr.error {
+    @include alert-colors($mero-red);
+  }
+  tr:nth-child(odd) td, tr:nth-child(odd) th {
+    @extend .zebra;
+  }
+}

@@ -1,0 +1,37 @@
+<?xml version="1.0" standalone="no"?>
+<!--
+Font Awesome Pro 5.14.0 by @fontawesome - https://fontawesome.com
+License - https://fontawesome.com/license (Commercial License)
+-->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" >
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
+<metadata>
+Created by FontForge 20200314 at Sun Aug 16 13:07:26 2020
+ By root
+Copyright (c) Font Awesome
+</metadata>
+<defs>
+<font id="FontAwesome5Brands-Regular" horiz-adv-x="512" >
+  <font-face 
+    font-family="Font Awesome 5 Brands Regular"
+    font-weight="400"
+    font-stretch="normal"
+    units-per-em="512"
+    panose-1="2 0 5 3 0 0 0 0 0 0"
+    ascent="448"
+    descent="-64"
+    bbox="0 -53 640 440"
+    underline-thickness="25"
+    underline-position="-50"
+    unicode-range="U+0020-F373"
+  />
+    <missing-glyph />
+    <glyph glyph-name="facebook" unicode="&#xf09a;" 
+d="M504 192c0 -123.78 -90.6904 -226.38 -209.25 -245v173.31h57.7803l11 71.6904h-68.7803v46.5498c0 19.6104 9.61035 38.7305 40.4102 38.7305h31.2803v61s-28.3809 4.83984 -55.5205 4.83984c-56.6699 0 -93.6699 -34.3301 -93.6699 -96.4805v-54.6396h-63v-71.6904h63
+v-173.31c-118.56 18.6201 -209.25 121.22 -209.25 245c0 137 111 248 248 248s248 -111 248 -248z" />
+    <glyph glyph-name="audible" unicode="&#xf373;" horiz-adv-x="640" 
+d="M640 248.1v-54l-320 -200l-320 199.9v54l320 -200zM445.5 176.1c-70.7998 94.4004 -200.5 110.7 -290.2 36.3008c-2.59961 -2.2002 -5.2002 -4.40039 -7.7002 -6.7002h-0.299805c37.1006 55.7002 100.601 92.3994 172.601 92.3994s135.5 -36.7998 172.699 -92.5996z
+M225.4 157.3c21 29.6006 55.5 49 94.3994 49c39.2002 0 73.9004 -19.5996 94.7998 -49.5l-45.3994 -28.3994c-21.2002 29.1992 -52 47.5996 -86.4004 47.5996c-20.8994 0 -40.5 -6.7998 -57.3994 -18.7002zM103.6 286.9c-11.5 -9.10059 -24.2998 -22.1006 -34.1992 -32.6006
+c53.8994 82.1006 147 135.601 250.5 135.601c104.899 0 197.199 -54 250.699 -135.7l-48.7998 -30.4004l-0.700195 1c-99.2998 138.5 -285.699 166.4 -417.5 62.1006zM570.6 254.2z" />
+  </font>
+</defs></svg>

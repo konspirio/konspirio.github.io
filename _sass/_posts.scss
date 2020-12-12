@@ -1,0 +1,27 @@
+.posts {
+    display: flex;
+    // justify-content: center;
+    flex-flow: column;
+    align-items: center;
+    li {
+      list-style-type: none;
+      display: flex;
+      time {
+        font-size: 0.9em;
+        display: inline-block;
+        font-family: $system-fonts;
+        width: 16ch;
+        text-align: right;
+      }
+      div {
+        display: inline-block;
+        text-align: left;
+        width: 40ch;
+        padding-left: 1em;
+        p, p:last-of-type {
+          margin: 0 0 1em 0;
+        }
+      }
+    }
+  }
+  

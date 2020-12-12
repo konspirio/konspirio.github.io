@@ -1,0 +1,186 @@
+@mixin alert-colors($c) {
+  border-color: rgba($c, 0.4);
+  background: rgba($c, 0.2);
+  color: darken($c, 20%);
+}
+
+@function pow($base, $exponents) {
+  $raised: 1;
+  @for $i from 1 through $exponents {
+    $raised: $raised * $base;
+  }
+  @return $raised;
+}
+@function luma($color){
+  // Thanks voxpelli for a very concise implementation of
+  // luminance measure in sass
+  // Adapted from: https://gist.github.com/voxpelli/6304812
+  $rgba: red($color), green($color), blue($color);
+  $rgba2: ();
+  @for $i from 1 through 3 {
+    $rgb: nth($rgba, $i);
+    $rgb: $rgb / 255;
+    $rgb: if($rgb < .03928, $rgb / 12.92, pow(($rgb + .055) / 1.055, 2));
+    $rgba2: append($rgba2, $rgb);
+  }
+  @return (.2126 * nth($rgba2, 1) + .7152 * nth($rgba2, 2) + 0.0722 * nth($rgba2, 3))*100;
+}
+
+@function contrast_ratio($color1, $color2) {
+  $luma1: luma($color1) + 5;
+  $luma2: luma($color2) + 5;
+  $ratio: $luma1 / $luma2;
+  @if $luma1 < $luma2 {
+    $ratio: 1 / $ratio;
+  }
+  @return $ratio;
+}
+@function text-contrast($bg,$wcag:5) {
+  @return contrast(#808080, $bg, $wcag);
+}
+@function text-bw($color) {
+  $luma: luma($color) + 0.0001;
+  @return if($luma < 49, white, black);
+}
+@function contrast($color, $bg: $color, $threshold:4.5,$debug:false) {
+  // $threshold: 4.5; // 4.5 = WCAG AA,7= WCAG AAA
+  $percent: 0;
+  $lighter: 0;
+  $darker: 0;
+  $lighter-ratio: 0;
+  $darker-ratio: 0;
+  @while $percent < 100 {
+    $lighter:       tint-color($color, $percent);
+    $darker:        shade-color($color, $percent);
+    $darker-ratio:  contrast_ratio($bg, $darker);
+    $lighter-ratio: contrast_ratio($bg, $lighter);
+
+    @if($darker-ratio > $lighter-ratio){
+      @if ($darker-ratio > $threshold){
+        @return $darker;
+      }
+    }
+    @if($lighter-ratio > $darker-ratio){
+      @if ($lighter-ratio > $threshold){
+        @return $lighter;
+      }
+    }
+    $percent: $percent + 2;
+  }
+  // @warn Contrast Warning $color, $bg L($lighter-ratio)  D($darker-ratio) ($threshold);
+  @return if($lighter-ratio > $darker-ratio, #FFF, #000);
+}
+@function tint-color($color, $level) {
+  @return mix(white, $color, $level * 1%);
+}
+@function shade-color($color, $level) {
+  @return mix(black, $color, $level * 1%);
+}
+
+@mixin font($font-family, $font-file) {
+  @font-face {
+    font-family: $font-family;
+    src: url($font-file+'.ttf');
+    font-weight: normal;
+    font-style: normal;
+  }
+}
+@function pale($color) {
+  // Used for the background.
+  @return lighten( desaturate( $color, 10 ), 30 );
+}
+@function light($color) {
+  // Used for the cube's top.
+  @return lighten( saturate( $color, 25 ), 20 );
+}
+@function dark($color) {
+  // Used for the cube's side.
+  @return darken( desaturate( $color, 20 ), 12 );
+}
+
+$colormap: ();
+@each $name, $color in $colors {
+  $generated: (
+    50:  tint-color($color, 11),
+    100: tint-color($color, 8),
+    200: tint-color($color, 6),
+    300: tint-color($color, 4),
+    400: tint-color($color, 2),
+    500: $color,
+    600: shade-color($color, 2),
+    700: shade-color($color, 4),
+    800: shade-color($color, 6),
+    900: shade-color($color, 8),
+    dark: dark($color),
+    light: light($color),
+    pale: pale($color),
+  );
+  $colormap: map-merge($colormap, ($name: $generated));
+}
+
+@function clr($color, $type: 500) {
+  @if map-has-key($colormap, $color) and map-has-key(map-get($colormap, $color), $type) {
+      @return map-get(map-get($colormap, $color), $type);
+  }
+  @warn 'Unknown #{$color} - #{$type} in #{$color}.';
+  @return #FFFFFF;
+}
+
+$color-debug: false !default;
+@if $color-debug {
+  @debug HUE $hue;
+  @debug SAT $sat;
+  @debug LIT $light;
+  @debug OFF $offset;
+  // $name: white;
+  @each $name, $color in $colors {
+    @debug $name 50  clr($name, 50);
+    @debug $name 100 clr($name, 100);
+    @debug $name 200 clr($name, 200);
+    @debug $name 300 clr($name, 300);
+    @debug $name 400 clr($name, 400);
+    @debug $name 500 clr($name, 500);
+    @debug $name 600 clr($name, 600);
+    @debug $name 700 clr($name, 700);
+    @debug $name 800 clr($name, 800);
+    @debug $name 900 clr($name, 900);
+
+    @debug $name pale  clr($name, pale);
+    @debug $name dark  clr($name, dark);
+    @debug $name light clr($name, light);
+    @debug "---";
+    @debug $name base clr($name);
+    @debug "---";
+  }
+}
+
+// @mixin cvar($name, $color, $w: 500, $wcag:4.7) {
+//   global: $text-base;
+//   $t: clr($text-base);
+//   $b: clr('blue');
+//   $v: clr('violet');
+//   $c: clr($color,$w);
+//   --#{$name}: #{$c};
+//   --#{$name}-bg: #{$c};
+//   --#{$name}-text: #{$c};
+//   --#{$name}-bg-text: #{contrast($t, $c, 7)};
+//   --#{$name}-bw-text: #{text-bw($c)};
+//   --#{$name}-bg-link: #{contrast($b, $c, $wcag)};
+//   --#{$name}-bg-link-visited: #{contrast($v, $c, $wcag)};
+// }
+// a11y-color(#c0c, #000)
+@mixin bg($color, $type: 500) {
+  background-color: clr($color, $type);
+}
+@mixin fg($color, $type: 500) {
+  color: clr($color, $type);
+}
+@mixin border($color, $type: 500) {
+  stroke: clr($color, $type);
+}
+@mixin border($color, $type: 500) {
+  border-color: clr($color, $type);
+}
+@mixin fill($color, $type: 500) {
+  fill: clr($color, $type);
+}

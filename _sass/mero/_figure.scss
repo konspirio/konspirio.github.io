@@ -1,0 +1,37 @@
+$mero-figcaption-bg: text-contrast($mero-body-bg) !default;
+$mero-figcaption-fg: text-contrast($mero-figcaption-bg,7) !default;
+figure {
+  overflow: hidden;
+  margin: 0;
+  padding-top: 56.25%;
+  position: relative;
+  border-radius: 0.5vh;
+  background-size: cover;
+  z-index: 0;
+  img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    transform: translate(-50%, -50%);
+  }
+  figcaption {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    z-index: 2;
+    padding: 0.5vh;
+    font-size: 0.9rem;
+    font-family: $system-fonts;
+    background: $mero-figcaption-bg;
+    color: $mero-figcaption-fg;
+    opacity: 0.8;
+    a {
+      color: white;
+      &:visited {
+        color: white;
+      }
+      text-decoration: underline;
+    }
+  }
+}

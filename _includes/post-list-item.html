@@ -1,0 +1,12 @@
+  <li>
+    <time datetime="{{ post.date | date: "%Y-%m-%d" }}">
+      <span class='desktop'>{{- post.date | date: "%e %B %Y" -}}</span>
+      <span class='mobile'>{{- post.date | date: "%e %b %Y" -}}</span>
+    </time>
+    <div>
+      <a href="{{post.url}}">
+        {{- post.title -}}
+      </a>
+      <p>{{- post.description-}}</p>
+    </div>
+  </li>

@@ -1,0 +1,26 @@
+$mero-footer-bg: #000 !default;
+$mero-footer-fg: text-contrast($mero-footer-bg);
+body > footer {
+  // display: flex;
+  @extend .flex;
+  @extend .one;
+  @extend .four-1100;
+  z-index: 0;
+  flex-shrink: 0;
+  font-size: 0.85rem;
+  justify-content: space-around;
+  padding-top: 1in;
+  padding: 1em 0;
+  text-align: center;
+  text-transform: uppercase;
+  background: $mero-footer-bg;
+  border-top: 1em solid $mero-brand;
+  color: $mero-footer-fg;
+  a {
+    text-decoration: underline !important;
+    color: $mero-footer-fg;
+    &:visited {
+      color: $mero-footer-fg;
+    }
+  }
+}

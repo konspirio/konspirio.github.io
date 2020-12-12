@@ -1,0 +1,23 @@
+{% if page.diceware == true %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- load the primary wordlist synchronously -->
+    <!-- Creates things like vogel-harvey-novak-cp-tot-trim -->
+    <script src="{{site.cdn_url}}/d/big.min.js"></script>
+    <script src="{{site.cdn_url}}/d/lists/special-min.js"></script>
+    <script src="{{site.cdn_url}}/d/lists/diceware-min.js"></script>
+
+    <!-- load the secondary languages async -->
+    <script async src="{{site.cdn_url}}/d/lists/alternative-min.js"></script>
+    <script async src="{{site.cdn_url}}/d/lists/catalan-min.js"></script>
+    <script async src="{{site.cdn_url}}/d/lists/dutch-min.js"></script>
+    <script async src="{{site.cdn_url}}/d/lists/esperanto-min.js"></script>
+    <script async src="{{site.cdn_url}}/d/lists/french-min.js"></script>
+    <script async src="{{site.cdn_url}}/d/lists/german-min.js"></script>
+    <script async src="{{site.cdn_url}}/d/lists/japanese-min.js"></script>
+    <script async src="{{site.cdn_url}}/d/lists/maori-min.js"></script>
+    <script async src="{{site.cdn_url}}/d/lists/polish-min.js"></script>
+    <script async src="{{site.cdn_url}}/d/lists/swedish-min.js"></script>
+
+    <!-- core application JS -->
+    <script src="{{site.cdn_url}}/d/main.js"></script>
+  {%else%} <!-- No Diceware --> {%endif%}

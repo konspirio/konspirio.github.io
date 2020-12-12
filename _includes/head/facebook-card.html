@@ -1,0 +1,14 @@
+<!-- Facebook OGP cards (https://developers.facebook.com/tools/debug/og/object/) https://www.google.com/webmasters/tools/dashboard -->
+<meta property="fb:app_id" content="{{ site.protocols.fb_app_id}}" />
+<meta property="fb:admins" content="AmeenDausha" />
+<meta property="og:locale" content="en_us" />
+<meta property="og:site_name" content="{{ site.title }}" />
+<meta property="og:title" content="{{site.title}}: {{page.title}}" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="{{site.url}}{{ page.url }}" />
+<meta property="og:description"
+  content="{% if page.description %}{{page.description}}{%else%}{{site.description}}{%endif%}" />
+{% if page.photo %}
+<meta property="og:image" content="https://s3.amazonaws.com/dausha/images/articles/{{page.photo['image']}}" />
+{% endif %}
+<!-- /Facebook -->
